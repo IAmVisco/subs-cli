@@ -1,6 +1,6 @@
 # Subtitles CLI
 
-A full featured, easy to use, CLI app to download subtitles from opensubtitles.com.
+A full-featured, easy-to-use, CLI app to download subtitles from opensubtitles.com.
 
 ![](subs-terminal.gif)
 
@@ -14,7 +14,7 @@ A full featured, easy to use, CLI app to download subtitles from opensubtitles.c
 ## Install
 
 ```shell script
-npm install -g subs-cli
+npm install -g @iamvisco/subs-cli
 ```
 
 ## Development

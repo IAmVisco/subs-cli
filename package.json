@@ -1,5 +1,5 @@
 {
-	"name": "subs-cli",
+	"name": "@iamvisco/subs-cli",
 	"description": "A full featured, easy to use, CLI app to download subtitles from opensubtitles.com",
 	"type": "module",
 	"version": "2.0.0",
@@ -16,10 +16,10 @@
 	},
 	"author": "Alexandru Cancescu",
 	"license": "MIT",
-	"homepage": "https://github.com/alexandrucancescu/subs-cli",
+	"homepage": "https://github.com/IAmVisco/subs-cli",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/alexandrucancescu/subs-cli"
+		"url": "https://github.com/IAmVisco/subs-cli"
 	},
 	"files": [
 		"dist/*",
