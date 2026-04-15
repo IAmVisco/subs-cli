@@ -2,7 +2,7 @@
 	"name": "@iamvisco/subs-cli",
 	"description": "A full featured, easy to use, CLI app to download subtitles from opensubtitles.com",
 	"type": "module",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"private": false,
 	"main": "dist/index.js",
 	"scripts": {
