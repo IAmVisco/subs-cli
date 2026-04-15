@@ -1,7 +1,7 @@
-import {remove} from "fs-extra"
-import {PREF_DIR} from "./Preferences"
+import pkg from "fs-extra";
+const { remove } = pkg;
+import { PREF_DIR } from "./preferences.js";
 
 remove(PREF_DIR)
-	.then(()=>console.log("Preferences directory removed"))
-	.catch(e=>console.error(e));
-
+	.then(() => console.log("Preferences directory removed"))
+	.catch((e) => console.error(e));

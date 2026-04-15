@@ -1,22 +1,22 @@
 {
-  "compilerOptions": {
-    "target": "es6",
-    "module": "commonjs",
-    "outDir": "dist",
-    "sourceMap": true,
-    "declaration": true,
-    "experimentalDecorators":true,
-    "emitDecoratorMetadata": true,
-    "moduleResolution": "node"
-  },
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"outDir": "dist",
+		"sourceMap": true,
+		"declaration": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"noImplicitAny": true,
+		"strictNullChecks": true
+	},
 
-  "filesGlob": [
-    "./node_modules/@types/*.d.ts"
-  ],
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+	"filesGlob": ["./node_modules/@types/*.d.ts"],
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules"]
 }

@@ -1,67 +1,53 @@
-import {getDataHome} from "platform-folders"
-import {ensureFile,readJson,writeJsonSync} from "fs-extra"
-import {join} from "path";
-
-export const PREF_DIR=join(getDataHome(),"Subtitles CLI");
-const PREF_FILE=join(PREF_DIR,"preferences.json");
+import Conf from "conf";
+import envPaths from "env-paths";
 
 interface IPreferences {
-	lang:string;
-	account:string;
-	useragent?:string;
+	lang: string;
+	account: string;
+	useragent?: string;
 }
 
-class Preferences{
-	private _lang:string;
-	private _account:string;
-	private _useragent:string;
+const paths = envPaths("Subtitles CLI", { suffix: "" });
+export const PREF_DIR = paths.data;
 
-	public async loadPreferences(){
-		await ensureFile(PREF_FILE);
+const config = new Conf<IPreferences>({
+	projectName: "subs-cli",
+	configName: "preferences",
+	cwd: paths.data,
+	defaults: {
+		lang: "eng",
+		account: "",
+		useragent: "",
+	},
+});
 
-		try{
-			const pref:IPreferences=await readJson(PREF_FILE);
-			this._lang=pref.lang;
-			this._account=pref.account;
-			this._useragent=pref.useragent;
-		}catch (e) {
-			this.writeFile();
-		}
+class Preferences {
+	public async loadPreferences() {
+		// Conf loads automatically
 	}
 
-	public writeFile(){
-		writeJsonSync(PREF_FILE,{
-			lang:this._lang,
-			account:this._account,
-			useragent:this._useragent
-		});
+	get lang(): string {
+		return config.get("lang");
 	}
 
-	get lang():string{
-		return this._lang;
+	set lang(value: string) {
+		config.set("lang", value);
 	}
 
-	get account():string{
-		return this._account;
+	get account(): string {
+		return config.get("account");
 	}
 
-	get useragent():string{
-		return this._account;
+	set account(value: string) {
+		config.set("account", value);
 	}
 
-	set lang(value:string){
-		this._lang=value;
-		this.writeFile();
+	get useragent(): string {
+		return config.get("useragent") || "";
 	}
 
-	set account(value:string){
-		this._account=value;
-		this.writeFile();
-	}
-
-	set useragent(value:string){
-		this._useragent=value;
-		this.writeFile();
+	set useragent(value: string) {
+		config.set("useragent", value);
 	}
 }
 

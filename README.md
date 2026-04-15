@@ -1,21 +1,35 @@
 # Subtitles CLI
 
-A full featured, easy to use, CLI app to download subtitles from opensubtitles.org.
+A full featured, easy to use, CLI app to download subtitles from opensubtitles.com.
 
 ![](subs-terminal.gif)
 
 ## Features
 
 -  🎞 Download subtitles for a movie file or an entire folder of video files
--  ⌨️ Login with your opensubtitles.org account
--  🏝 Stores preferences for language and opensubtitles.org account
--  ⚔️ Secure! Your account credentials are stored encrypted by your operating system using Keychain/Credential Vault/Secret Service API
--  ⌛️ Shows download quota from opensubtitles.org
+-  ⌨️ Login with your opensubtitles.com account
+-  🏝 Stores preferences for language and opensubtitles.com account securely in your application data folder
+-  ⌛️ Shows download quota from opensubtitles.com
 
 ## Install
 
 ```shell script
 npm install -g subs-cli
+```
+
+## Development
+
+This project uses [Biome](https://biomejs.dev/) for linting and formatting.
+
+```shell script
+# Run linter
+npm run lint
+
+# Run formatter
+npm run format
+
+# Run both and apply safe fixes
+npm run check
 ```
 
 If you encounter EACCES error on Mac OS read [Installation Problems](#installation-problems) section. 
@@ -67,8 +81,6 @@ sudo npm install -g subs-cli
 ```
 
 That might cause another problem, as npm drops the sudo privileges for packages that run scripts, and sets the user to "nobody".
-This will cause **keytar** (the package that manages the secure storage of account passwords) 
-to not be able to install it's prebuilt native modules, as it cannot create a folder for them. 
 
 The only workarounds are to either change the ownership of **node_modules** dir, and install
 npm global packages without sudo

@@ -1,52 +1,62 @@
 {
-  "name": "subs-cli",
-  "description": "A full featured, easy to use, CLI app to download subtitles from opensubtitles.org",
-  "version": "1.0.13",
-  "private": false,
-  "main": "dist/Run.js",
-  "scripts": {
-    "postuninstall": "node ./dist/Uninstall.js"
-  },
-  "author": "Alexandru Cancescu",
-  "license": "MIT",
-  "homepage": "https://github.com/alexandrucancescu/subs-cli",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/alexandrucancescu/subs-cli"
-  },
-  "files": [
-    "dist/*",
-    "extensions.json",
-    "langs.json"
-  ],
-  "types": "dist/Run.d.ts",
-  "typings": "dist/Run.d.ts",
-  "keywords": [
-    "node",
-    "opensubtitles",
-    "subtitle",
-    "subtitle-download",
-    "subtitles",
-    "subs",
-    "srt",
-    "opensubtitles.org"
-  ],
-  "bin": {
-    "subs": "./dist/Run.js"
-  },
-  "devDependencies": {
-    "@types/fs-extra": "^8.1.0",
-    "@types/inquirer": "^6.5.0",
-    "@types/node": "^13.11.1"
-  },
-  "dependencies": {
-    "chalk": "^4.1.0",
-    "commander": "^5.1.0",
-    "fs-extra": "^9.0.1",
-    "inquirer": "^7.1.0",
-    "keytar": "^5.6.0",
-    "opensubtitles-api": "^5.1.2",
-    "ora": "^4.1.1",
-    "platform-folders": "^0.5.1"
-  }
+	"name": "subs-cli",
+	"description": "A full featured, easy to use, CLI app to download subtitles from opensubtitles.com",
+	"type": "module",
+	"version": "2.0.0",
+	"private": false,
+	"main": "dist/index.js",
+	"scripts": {
+		"build": "tsc",
+		"lint": "biome lint .",
+		"format": "biome format . --write",
+		"check": "biome check --write .",
+		"start": "node dist/index.js",
+		"prepublishOnly": "npm run build",
+		"postuninstall": "node ./dist/uninstall.js"
+	},
+	"author": "Alexandru Cancescu",
+	"license": "MIT",
+	"homepage": "https://github.com/alexandrucancescu/subs-cli",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/alexandrucancescu/subs-cli"
+	},
+	"files": [
+		"dist/*",
+		"extensions.json",
+		"langs.json"
+	],
+	"types": "dist/index.d.ts",
+	"typings": "dist/index.d.ts",
+	"keywords": [
+		"node",
+		"opensubtitles",
+		"subtitle",
+		"subtitle-download",
+		"subtitles",
+		"subs",
+		"srt",
+		"opensubtitles.com"
+	],
+	"bin": {
+		"subs": "./dist/index.js"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.4.12",
+		"@types/fs-extra": "^11.0.4",
+		"@types/inquirer": "^9.0.7",
+		"@types/node": "^22.11.0",
+		"typescript": "^5.7.2"
+	},
+	"dependencies": {
+		"@napi-rs/keyring": "^1.2.0",
+		"chalk": "^5.3.0",
+		"commander": "^12.1.0",
+		"conf": "^13.0.1",
+		"env-paths": "^3.0.0",
+		"fs-extra": "^11.3.0",
+		"inquirer": "^9.3.2",
+		"opensubtitles.com": "^1.1.0",
+		"ora": "^8.2.0"
+	}
 }
